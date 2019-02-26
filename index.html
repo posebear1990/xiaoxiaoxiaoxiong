@@ -1,18 +1,58 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Xiaoxiong的个人主页</title>
+    <script src="jquery.min.js"></script>
+    <script src="jquery-canvas-sparkles.js"></script>
+    <script>
+      $(document).ready(function() {
+        $(".star-background")
+          .sparkle({
+            // accepts a HEX string, or "rainbow" or an array of HEX strings:
+            color: [
+              "#ffffff",
+              "#fec9f8",
+              "#fef6a6",
+              "#b1eff4",
+              "#fbaeb8",
+              "#fed687",
+              "#fb8b99"
+            ],
+            // determine how many sparkles will be on the element at a time
+            count: 10,
+            // tell the canvas how far over the edge of it's container it should overlap in pixels.
+            overlap: 0,
+            // set the speed multiplier
+            speed: 0.4,
+            // min size
+            minSize: 15,
+            // max size
+            maxSize: 20,
+            // "up", "down" or "both" to set which direction the sparkles will travel in.
+            direction: "up"
+          })
+          .trigger("mouseover.sparkle")
+          .off("mouseout.sparkle");
+      });
+    </script>
     <style media="screen">
-      html, body {
+      html,
+      body {
         margin: 0;
         padding: 0;
       }
-      .content {
-        background-image: url(./bg.jpg);
+      body {
+        background-image: url(./bg.png);
         height: 100vh;
         background-repeat: no-repeat;
         background-size: cover;
+        background-position: center;
+      }
+      .content {
+        position: relative;
+        z-index: 10;
+        height: 100vh;
       }
       .title {
         width: 800px;
@@ -28,42 +68,99 @@
         text-align: center;
         padding-top: 40px;
       }
-      .code, .story {
+      .code,
+      .story {
         background: #ccc;
         width: 50px;
         height: 50px;
         border-radius: 100%;
         display: inline-block;
-        background-color: rgba(230,230,230, 0.4);
+        background-color: rgba(230, 230, 230, 0.4);
       }
-      .code:hover, .story:hover {
-        background-color: rgba(230,230,230, 0.7);
+      .code:hover,
+      .story:hover {
+        background-color: rgba(230, 230, 230, 0.7);
       }
       .code {
         background-image: url(./code.png);
         background-repeat: no-repeat;
-        background-size: 40px;
-        background-position: 5px 5px;
+        background-size: 30px;
+        background-position: 10px 10px;
       }
       .story {
         background-image: url(./story.png);
         background-repeat: no-repeat;
-        background-size: 33px;
-        background-position: 10px 9px;
+        background-size: 23px;
+        background-position: 13px 13px;
         margin-left: 55px;
+      }
+      .footer {
+        position: absolute;
+        bottom: 20px;
+        text-align: center;
+        width: 100%;
+        color: #ccc;
+      }
+      .footer > a {
+        color: #ccc;
+      }
+      .player {
+        width: 25px;
+        height: 25px;
+        left: 20px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 8px;
+        border: 3px solid #8c8c8c;
+      }
+      .player .netease-music {
+        position: absolute;
+        right: -14px;
+        top: -14px;
+        width: 120px;
+        height: 100px;
+      }
+      /*星星背景*/
+      .star-background {
+        position: absolute;
+        height: 30vh;
+        width: 100%;
       }
     </style>
   </head>
   <body>
+    <div class="star-background"></div>
     <div class="content">
-      <h1 class="title">
-        Hi, 我是Xiaoxiong。
-        是一名前端程序员，Web开发者。平时休息的时候，我会写写博客，弹弹吉他，偶尔周末也会踢踢球。如果你对我感兴趣，欢迎关注我的微博，知乎，豆瓣，GitHub等社交网络。
-      </h1>
-      
+      <h1 class="title">Hi, 我是Xiaoxiong。 是一名前端程序员，Web开发者。</h1>
+
       <div class="website">
-        <a href="http://blog.xiaoxiaoxiaoxiong.com" title="现代前端开发" class="code"></a>
-        <a href="http://istory.xiaoxiaoxiaoxiong.com" title="第 36 个故事" class="story"></a>
+        <a
+          href="http://blog.xiaoxiaoxiaoxiong.com"
+          title="现代前端开发"
+          class="code"
+        ></a>
+        <a
+          href="http://istory.xiaoxiaoxiaoxiong.com"
+          title="第 36 个故事"
+          class="story"
+        ></a>
+      </div>
+
+      <div class="footer">
+        Xiaoxiong©2018－2019
+        <a href="http://www.miitbeian.gov.cn">陕ICP备18015475号</a>
+      </div>
+      <div class="player">
+        <iframe
+          class="netease-music"
+          frameborder="no"
+          border="0"
+          marginwidth="0"
+          marginheight="0"
+          width="280"
+          height="52"
+          src="//music.163.com/outchain/player?type=2&id=407248&auto=1&height=32"
+        ></iframe>
       </div>
     </div>
   </body>
