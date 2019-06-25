@@ -3,130 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <title>Xiaoxiong的个人主页</title>
-    <script src="jquery.min.js"></script>
-    <script src="jquery-canvas-sparkles.js"></script>
-    <script>
-      $(document).ready(function() {
-        $(".star-background")
-          .sparkle({
-            // accepts a HEX string, or "rainbow" or an array of HEX strings:
-            color: [
-              "#ffffff",
-              "#fec9f8",
-              "#fef6a6",
-              "#b1eff4",
-              "#fbaeb8",
-              "#fed687",
-              "#fb8b99"
-            ],
-            // determine how many sparkles will be on the element at a time
-            count: 10,
-            // tell the canvas how far over the edge of it's container it should overlap in pixels.
-            overlap: 0,
-            // set the speed multiplier
-            speed: 0.4,
-            // min size
-            minSize: 15,
-            // max size
-            maxSize: 20,
-            // "up", "down" or "both" to set which direction the sparkles will travel in.
-            direction: "up"
-          })
-          .trigger("mouseover.sparkle")
-          .off("mouseout.sparkle");
-      });
-    </script>
-    <style media="screen">
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        background-image: url(./bg.png);
-        height: 100vh;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-      }
-      .content {
-        position: relative;
-        z-index: 10;
-        height: 100vh;
-      }
-      .title {
-        width: 800px;
-        margin: 0 auto;
-        padding-top: 90px;
-        color: #fff;
-        font-size: 20px;
-        font-weight: 400;
-        text-align: center;
-      }
-      .website {
-        height: 100px;
-        text-align: center;
-        padding-top: 40px;
-      }
-      .code,
-      .story {
-        background: #ccc;
-        width: 50px;
-        height: 50px;
-        border-radius: 100%;
-        display: inline-block;
-        background-color: rgba(230, 230, 230, 0.4);
-      }
-      .code:hover,
-      .story:hover {
-        background-color: rgba(230, 230, 230, 0.7);
-      }
-      .code {
-        background-image: url(./code.png);
-        background-repeat: no-repeat;
-        background-size: 30px;
-        background-position: 10px 10px;
-      }
-      .story {
-        background-image: url(./story.png);
-        background-repeat: no-repeat;
-        background-size: 23px;
-        background-position: 13px 13px;
-        margin-left: 55px;
-      }
-      .footer {
-        position: absolute;
-        bottom: 20px;
-        text-align: center;
-        width: 100%;
-        color: #ccc;
-      }
-      .footer > a {
-        color: #ccc;
-      }
-      .player {
-        width: 25px;
-        height: 25px;
-        left: 20px;
-        overflow: hidden;
-        position: relative;
-        border-radius: 8px;
-        border: 3px solid #8c8c8c;
-      }
-      .player .netease-music {
-        position: absolute;
-        right: -14px;
-        top: -14px;
-        width: 120px;
-        height: 100px;
-      }
-      /*星星背景*/
-      .star-background {
-        position: absolute;
-        height: 30vh;
-        width: 100%;
-      }
-    </style>
+    <script src="./lib/jquery.min.js"></script>
+    <!-- 星星特效 -->
+    <script src="./lib/jquery-canvas-sparkles.js"></script>
+    <script src="./src/sparkle.js"></script>
+    <link rel="stylesheet" href="./asset/styles/index.css" />
+    <!-- live2d css -->
+    <link rel="stylesheet" href="/lib/live2d/css/live2d.css" />
   </head>
   <body>
     <div class="star-background"></div>
@@ -140,8 +23,8 @@
           class="code"
         ></a>
         <a
-          href="http://istory.xiaoxiaoxiaoxiong.com"
-          title="第 36 个故事"
+          href="http://daily.xiaoxiaoxiaoxiong.com"
+          title="Xiaoxiong 的日常"
           class="story"
         ></a>
       </div>
@@ -159,9 +42,27 @@
           marginheight="0"
           width="280"
           height="52"
-          src="//music.163.com/outchain/player?type=2&id=407248&auto=1&height=32"
+          src="//music.163.com/outchain/player?type=2&id=651241&auto=0&height=32"
         ></iframe>
       </div>
     </div>
+
+    <!-- live2d -->
+    <div id="landlord">
+      <div class="message" style="opacity:0"></div>
+      <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+      <div class="hide-button">隐藏</div>
+    </div>
+
+    <script type="text/javascript">
+      var message_Path = "/lib/live2d/";
+      var home_Path = "http://localhost:8888/lib/"; //此处修改为你的域名，必须带斜杠
+    </script>
+    <script type="text/javascript" src="/lib/live2d/js/live2d.js"></script>
+    <script type="text/javascript" src="/lib/live2d/js/message.js"></script>
+    <script type="text/javascript">
+      loadlive2d("live2d", "/lib/live2d/model/rem/rem.json");
+    </script>
+    <!-- live2d -->
   </body>
 </html>

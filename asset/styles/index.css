@@ -1,0 +1,89 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: url(../images/background.jpg);
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.content {
+  position: relative;
+  z-index: 10;
+  height: 100vh;
+}
+.title {
+  width: 800px;
+  margin: 0 auto;
+  padding-top: 90px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+}
+.website {
+  height: 100px;
+  text-align: center;
+  padding-top: 40px;
+}
+.code,
+.story {
+  background: #ccc;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  display: inline-block;
+  background-color: rgba(230, 230, 230, 0.4);
+}
+.code:hover,
+.story:hover {
+  background-color: rgba(230, 230, 230, 0.7);
+}
+.code {
+  background-image: url(../icon/code.png);
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: 10px 10px;
+}
+.story {
+  background-image: url(../icon/story.png);
+  background-repeat: no-repeat;
+  background-size: 23px;
+  background-position: 13px 13px;
+  margin-left: 55px;
+}
+.footer {
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+  width: 100%;
+  color: #ccc;
+}
+.footer > a {
+  color: #ccc;
+}
+.player {
+  width: 25px;
+  height: 25px;
+  left: 20px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+  border: 3px solid #8c8c8c;
+}
+.player .netease-music {
+  position: absolute;
+  right: -14px;
+  top: -14px;
+  width: 120px;
+  height: 100px;
+}
+/*星星背景*/
+.star-background {
+  position: absolute;
+  height: 30vh;
+  width: 100%;
+}
